@@ -1,0 +1,419 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *
+ *= require font-awesome
+ */
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans-Regular.ttf") format("ttf");
+}
+
+
+body {
+    font: 400 16px / 1.5 'Open Sans', sans-serif;
+}
+
+.header {
+    text-align: center;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.header h1 {
+    margin-top: 60px;
+}
+
+.header span {
+    margin: 0;
+}
+
+.content {
+    width: 700px;
+    margin: 60px auto;
+}
+
+.project-article {
+    margin-bottom: 80px;
+}
+
+.project-article .todo-header {
+    display: flex;
+    align-items: center;
+    background-color: #6495ed;
+    padding: 15px 20px;
+    position: relative;
+}
+
+.project-article .todo-header.edit-mode {
+    flex-direction: row-reverse;
+}
+
+.project-article .todo-header:hover {
+    cursor: pointer;
+}
+
+.project-article .todo-header.edit-mode input {
+    display: inline;
+    height: 25px;
+    padding-left: 0;
+}
+
+.project-article .todo-header input:focus {
+    outline: none;
+}
+
+.project-article .todo-header h3,
+.project-article .todo-header.edit-mode input {
+    font-size: 18px;
+    width: calc(100% - 30px);
+    border: none;
+    border-bottom: 1px solid #333;
+    background-color: transparent;
+    outline: none;
+    color: #333;
+    font-weight: normal;
+    margin: 0;
+}
+
+.project-article .todo-header h3.hide {
+    display: none;
+}
+
+.project-article .todo-header h3.show {
+    display: block;
+}
+
+.project-article .todo-header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50px;
+}
+
+.project-article .todo-header h3.hide + ul {
+    width: 100%;
+}
+
+.project-article .todo-header .todo-action-edit {
+    padding-right: 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+.project-article .todo-header .project-check-icon::before {
+    content: "\f00c";
+    display: inline-block;
+    font-family: FontAwesome;
+    font-size: 20px;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #147214;
+    padding-right: 10px;
+    position: relative;
+    left: 15px;
+    cursor: pointer;
+}
+
+.todo-list-actions .check-task {
+    display: none;
+    color: #147214;
+}
+
+.project-check-icon {
+    display: none;
+}
+
+.todo-header .project-cross-icon {
+    display: flex;
+    font-size: 20px;
+    color: #333;
+    position: relative;
+    left: 0;
+}
+
+.new-todo-input {
+    display: none;
+}
+
+.edit-title-box {
+    position: absolute;
+    width: calc(100% - 120px);
+    height: 20px;
+    left: 20px;
+}
+
+.project-article .todo-header .edit-title-box input {
+    display: none;
+    width: 100%;
+    position: relative;
+    bottom: 4px;
+    font: 400 16px / 1.5 'Open Sans', sans-serif;
+    border: none;
+    background-color: transparent;
+    color: #333;
+    border-bottom: 1px solid #333;
+}
+
+.project-check-icon.show,
+.project-article .todo-header .edit-title-box input.show {
+    display: flex;
+}
+
+.todo-header .project-cross-icon.hide {
+    display: none;
+}
+
+.project-check-icon > input[type="submit"] {
+    position: absolute;
+    right: 60px;
+    top: 22px;
+    width: 20px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.project-trash-icon button[type="submit"] {
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    border-left: 1px solid #333;
+    padding-left: 10px;
+    color: #333;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.todo-list-actions .trash-icon {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.todo-title-block > form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.project-article .todo-bar {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #eae7e7;
+    border: 1px solid #ccc;
+}
+
+.project-article .todo-bar .todo-bar-new form input {
+    border: 1px solid #ccc;
+    width: 520px;
+    padding: 8px;
+    color: #999;
+    font-size: 14px;
+}
+
+.project-article .todo-bar .todo-bar-new form input:focus {
+    outline: none;
+}
+
+.project-article .todo-bar .todo-bar-new form {
+    display: flex;
+}
+
+.project-article .todo-bar .todo-bar-new form input[type="submit"] {
+    margin-left: 10px;
+    background-color: green;
+    color: #fff;
+    border: 1px solid green;
+    padding: 8px 30px;
+    font-size: 14px;
+    width: auto;
+}
+
+.project-article .todo-list {
+    border-radius: 0 0 13px 13px;
+    border: 1px solid #ccc;
+    border-top: none;
+    background: #fff;
+    overflow: hidden;
+}
+
+.project-article .todo-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.project-article .todo-list table tr:not(:last-child) {
+    border-bottom: 1px solid #e8ebea;
+    background-color: #fff;
+    transition: all 0.5s;
+}
+
+.project-article .todo-list table tr:hover {
+    background-color: rgba(191,175, 56, 0.3);
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.project-article .todo-list table tr td {
+    padding: 15px 0;
+}
+
+.project-article .todo-list table tr.completed-task span {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.project-article .todo-list table tr .todo-list-checkbox {
+    width: 40px;
+}
+
+.project-article .todo-list table tr .todo-list-checkbox input {
+    margin-left: 15px;
+}
+
+.project-article .todo-list table tr .todo-list-divider {
+    width: 5px;
+    border-left: 1px solid #eddadf;
+    border-right: 1px solid #eddadf;
+}
+
+.project-article .todo-list table tr .todo-list-task {
+    border-right: 1px solid #e8ebea;
+    color: #333;
+    font-size: 14px;
+    width: 516px;
+}
+
+.todo-list-task-title {
+    margin: 0;
+    padding: 5px 16px;
+    width: calc(100% - 32px);
+    display: inline-block;
+}
+
+.edit-current-task input[type="text"] {
+    border: none;
+    width: 90%;
+    color: #999;
+    padding: 5px 3px;
+    font-size: 14px;
+    margin: 0 13px;
+    background-color: #fff;
+    transition: all 0.5s;
+    outline: none;
+}
+
+.project-article .todo-list table tr .todo-list-task.edit-mode span,
+.project-article .todo-list .hide,
+.edit-task-wrap,
+.edit-hide-button {
+    display: none;
+}
+
+.todo-list .show {
+    display: inline-block;
+    width: 100%;
+}
+
+.project-article .todo-list table tr:hover .todo-list-task.edit-mode input.editor {
+    background-color: rgba(191,175, 56, 0);
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.project-article .todo-list table tr .todo-list-task.edit-mode input:focus {
+    outline: none;
+}
+
+.project-article .todo-list table tr .todo-list-actions {
+    width: 100px;
+    padding: 0 16px;
+}
+
+.project-article .todo-list table tr .todo-list-actions ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.project-article .todo-list table tr .todo-list-actions ul li .todo-list-task-sort,
+.project-article .todo-list table tr .todo-list-actions ul li.todo-list-task-edit,
+.project-article .todo-list table tr .todo-list-actions ul li .todo-list-task-delete {
+    color: #333;
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 1px solid #333;
+    text-decoration: none;
+}
+
+.project-article .todo-list table tr .todo-list-actions ul li .todo-list-task-edit .cross-icon {
+    display: none;
+}
+
+.project-article .todo-list table tr .todo-list-actions ul li .todo-list-task-delete {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.new-todo {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.new-todo form input[type="submit"] {
+    background-color: #6495ed;
+    color: #fff;
+    border: 1px solid #6495ed;
+    border-radius: 3px;
+    padding: 10px 30px;
+    opacity: 1;
+    transition: opacity 0.5s;
+    font-size: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+.new-todo .add-new-todo-btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.5s;
+}
+
+.new-todo .add-new-todo-btn:active {
+    background-image: none;
+    background-color: #5d80a6;
+}
+
+.project-article .todo-list table .ui-sortable-handle.completed-task .todo-list-task .editor,
+.through-line-to {
+    text-decoration: line-through;
+}
+
+.project-article .todo-list table .ui-sortable-handle:not(.completed-task) .todo-list-task .editor {
+    text-decoration: none;
+}

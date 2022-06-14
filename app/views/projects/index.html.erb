@@ -1,0 +1,21 @@
+<div class="header">
+  <h1>simple todo lists</h1>
+</div>
+<div class="content">
+  <section class="list">
+    <% @projects.each do |project| %>
+      <div class="list-inner">
+        <%= render project %>
+      </div>
+    <% end %>
+  </section>
+  <div class="new-todo">
+    <%= form_with model: @project do |form| %>
+      <div class="new-todo-input"><%= form.text_field :title %></div>
+
+      <%= form.submit "Add new todo" %>
+    <% end %>
+  </div>
+</div>
+
+

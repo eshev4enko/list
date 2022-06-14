@@ -1,0 +1,33 @@
+<tr data-task-id="<%= "#{task.id}" %>" data-sgid="<%= task.to_sgid_param %>" data-position="<%= task.position %>" class="task-box <%= task.completed? ? 'completed-task' : nil %>" data-controller="tasks">
+  <td class="todo-list-checkbox">
+    <%= check_box_tag :completed, task.completed, task.completed,
+                      data: {id: task.id, controller: 'tasks', action: "tasks#complete"}, class: 'check-active'
+    %>
+  </td>
+  <td class="todo-list-divider"></td>
+  <td class="todo-list-task">
+    <span class="todo-list-task-title"><%= h task.name %></span>
+    <div class="edit-task-wrap">
+      <%= form_with model: [project, task] do |form| %>
+        <div class="edit-current-task"><%= form.text_field :name %></div>
+
+        <%= form.submit "Редактировать", class: "edit-hide-button" %>
+      <% end %>
+    </div>
+  </td>
+  <td class="todo-list-actions">
+    <ul class="hidden">
+        <li>
+          <a class="todo-list-task-sort" href="#">
+            <i class="fa fa-sort"></i>
+          </a>
+        </li>
+        <li class="todo-list-task-edit">
+          <i class="fa fa-pencil edit-icon" aria-hidden="true"></i>
+          <i class="fa fa-check check-task" aria-hidden="true"></i>
+        </li>
+        <li><%= button_to fa_icon('trash'), project_task_path(project, task), class: "trash-icon", method: :delete %></li>
+    </ul>
+  </td>
+</tr>
+

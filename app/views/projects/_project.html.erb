@@ -1,0 +1,36 @@
+<article class="project-article" data-project-id="<%= project.id %>">
+  <div class="todo-header">
+    <h3><%= h project.title %></h3>
+    <ul class="todo-title-block">
+      <%= form_with model: project do |form| %>
+        <li class="edit-title-box"><%= form.text_field :title %></li>
+        <li class="project-check-icon">
+          <%= form.submit ' ' %>
+        </li>
+        <li class="project-edit-icon">
+          <i class="fa fa-pencil project-cross-icon" aria-hidden="true"></i>
+        </li>
+      <% end %>
+    </ul>
+    <div class="project-trash-icon"><%= button_to fa_icon('trash-o'), project_path(project), method: :delete %></div>
+  </div>
+
+  <div class="todo-bar">
+    <div class="todo-bar-new">
+      <%= form_with model: [project, @task] do |form| %>
+        <%= form.text_field :name, placeholder: 'Start typing here to create a task...' %>
+
+        <%= form.submit "Add task", class: 'todo-bar-btn' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="todo-list">
+    <table>
+      <tbody data-controller="drag" data-drag-url="/projects/:id/tasks/sort">
+      <% unless project.tasks.empty? %>
+        <%= render project.tasks, project: project %>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</article>

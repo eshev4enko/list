@@ -26,13 +26,13 @@ class TasksController < ApplicationController
     @task.update(completed: !@task.completed)
     @task.completed? ? true : false
     @task.save
-    render json: { message: "Success" }
+    render json: { message: "#{t('tasks.success')}" }
   end
 
   def sort
     @task = GlobalID::Locator.locate_signed(params[:sgid])
     @task.update(position: params[:position])
-    render json: { message: "Success" }
+    render json: { message: "#{t('tasks.success')}" }
   end
 
   private

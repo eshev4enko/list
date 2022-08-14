@@ -1,6 +1,6 @@
 <article class="project-article" data-project-id="<%= project.id %>">
   <div class="todo-header">
-    <h3><%= h project.title %></h3>
+    <h3><%= t 'projects.create.title' %></h3>
     <ul class="todo-title-block">
       <%= form_with model: project do |form| %>
         <li class="edit-title-box"><%= form.text_field :title %></li>
@@ -18,9 +18,9 @@
   <div class="todo-bar">
     <div class="todo-bar-new">
       <%= form_with model: [project, @task] do |form| %>
-        <%= form.text_field :name, placeholder: 'Start typing here to create a task...' %>
+        <%= form.text_field :name, placeholder: "#{t('projects.task.placeholder')}" %>
 
-        <%= form.submit "Add task", class: 'todo-bar-btn' %>
+        <%= form.submit "#{t('main.button_task')}", class: 'todo-bar-btn' %>
       <% end %>
     </div>
   </div>

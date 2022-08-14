@@ -76,3 +76,6 @@ end
 gem "acts_as_list", "~> 1.0"
 gem 'requestjs-rails'
 gem 'rails_12factor'
+gem 'faker'
+gem 'state_machines'
+gem 'rails-i18n'

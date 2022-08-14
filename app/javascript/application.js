@@ -16,6 +16,10 @@ document.addEventListener('click', (event) => {
     if (tap.classList.contains('check-task')) {
         backToReadonlyFields(tap);
     }
+
+    // if (tap.classList.contains('todo-bar-btn')) {
+    //     event.preventDefault();
+    // }
 });
 
 function editTodo (edit) {

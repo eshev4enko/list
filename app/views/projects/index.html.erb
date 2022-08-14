@@ -1,5 +1,5 @@
 <div class="header">
-  <h1>simple todo lists</h1>
+  <h1><%= t 'main.title' %></h1>
 </div>
 <div class="content">
   <section class="list">
@@ -13,7 +13,7 @@
     <%= form_with model: @project do |form| %>
       <div class="new-todo-input"><%= form.text_field :title %></div>
 
-      <%= form.submit "Add new todo" %>
+      <%= form.submit "#{t('main.button')}" %>
     <% end %>
   </div>
 </div>

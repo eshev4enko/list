@@ -91,6 +91,8 @@ GEM
       reline (>= 0.2.7)
     digest (3.1.0)
     erubi (1.10.0)
+    faker (2.21.0)
+      i18n (>= 1.8.11, < 2)
     font-awesome-rails (4.7.0.8)
       railties (>= 3.2, < 8.0)
     globalid (1.0.0)
@@ -161,6 +163,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
+    rails-i18n (7.0.3)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 8)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -192,6 +197,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    state_machines (0.5.0)
     stimulus-rails (1.0.4)
       railties (>= 6.0.0)
     strscan (3.0.1)
@@ -226,16 +232,19 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  faker
   font-awesome-rails
   importmap-rails
   jbuilder
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.4)
+  rails-i18n
   rails_12factor
   requestjs-rails
   selenium-webdriver
   sprockets-rails
+  state_machines
   stimulus-rails
   turbo-rails
   tzinfo-data

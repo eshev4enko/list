@@ -3,12 +3,12 @@ class ProjectsController < ApplicationController
 
   def index
     @project = Project.new
-    @projects = Project.order(created_at: :asc).all
+    @projects = Project.order(created_at: :desc).all
     @task = @project.tasks.new
   end
 
   def create
-    @project = Project.create(title: "Enter the title...")
+    @project = Project.create(title: "#{t('projects.create.title')}")
     redirect_to projects_path
   end
 

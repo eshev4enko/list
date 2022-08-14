@@ -1,4 +1,8 @@
-<tr data-task-id="<%= "#{task.id}" %>" data-sgid="<%= task.to_sgid_param %>" data-position="<%= task.position %>" class="task-box <%= task.completed? ? 'completed-task' : nil %>" data-controller="tasks">
+<tr data-task-id="<%= "#{task.id}" %>"
+    data-sgid="<%= task.to_sgid_param %>"
+    data-position="<%= task.position %>"
+    class="task-box <%= task.completed? ? 'completed-task' : nil %>"
+    data-controller="tasks">
   <td class="todo-list-checkbox">
     <%= check_box_tag :completed, task.completed, task.completed,
                       data: {id: task.id, controller: 'tasks', action: "tasks#complete"}, class: 'check-active'
@@ -11,7 +15,7 @@
       <%= form_with model: [project, task] do |form| %>
         <div class="edit-current-task"><%= form.text_field :name %></div>
 
-        <%= form.submit "Редактировать", class: "edit-hide-button" %>
+        <%= form.submit " ", class: "edit-hide-button" %>
       <% end %>
     </div>
   </td>
